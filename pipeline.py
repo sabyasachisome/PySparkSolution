@@ -29,16 +29,16 @@ class Pipeline:
         try:
             logging.info('Inside main pipelne')
         
-			ingest_process= ingest.Ingest(self.spark)
-			df= ingest_process.ingest_data()
-	#         df.show()
-			
-			transform_process= transform.Transform(self.spark)
-			summary_df= transform_process.transform_data(df)
-	#         summary_df.show()
-			
-			persist_process= persist.Persist()
-			persist_process.persist_data(summary_df)
+            ingest_process= ingest.Ingest(self.spark)
+            df= ingest_process.ingest_data()
+    #         df.show()
+            
+            transform_process= transform.Transform(self.spark)
+            summary_df= transform_process.transform_data(df)
+    #         summary_df.show()
+            
+            persist_process= persist.Persist()
+            persist_process.persist_data(summary_df)
         
             logging.info('ETL process complete')
         except Exception as exp:
